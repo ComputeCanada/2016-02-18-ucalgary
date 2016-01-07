@@ -18,7 +18,6 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
 ---
 <!--
   HEADER
-
   Edit the values in the block above to be appropriate for your workshop.
   If the value is not 'true', 'false', 'null', or a number, please use
   double quotation marks around the value, unless specified otherwise.
@@ -27,7 +26,6 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
 
 <!--
   EVENTBRITE
-
   This block includes the Eventbrite registration widget if
   'eventbrite' has been set in the header.  You can delete it if you
   are not using Eventbrite, or leave it in, since it will not be
@@ -43,11 +41,10 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
 </iframe>
 {% endif %}
 
-<h2 id="general">General Information</h2>
+<h2>General Information</h2>
 
 <!--
   INTRODUCTION
-
   Edit the general explanatory paragraph below if you want to change
   the pitch.
 -->
@@ -71,11 +68,10 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
 
 <!--
   AUDIENCE
-
   Explain who your audience is.  (In particular, tell readers if the
   workshop is only open to people from a particular institution.
 -->
-<p id="who">
+<p>
   <strong>Who:</strong>
   The course is aimed at graduate students and other researchers.
   <strong>You don't need to have any previous knowledge of the tools that will
@@ -84,14 +80,13 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
 
 <!--
   LOCATION
-
   This block displays the address and links to maps showing directions
   if the latitude and longitude of the workshop have been set.  You
   can use http://itouchmap.com/latlong.html to find the lat/long of an
   address.
 -->
 {% if page.latlng %}
-<p id="where">
+<p>
   <strong>Where:</strong>
   {{page.address}}.
   Get directions with
@@ -103,10 +98,9 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
 
 <!--
   SPECIAL REQUIREMENTS
-
   Modify the block below if there are any special requirements.
 -->
-<p id="requirements">
+<p>
   <strong>Requirements:</strong> Participants must bring a laptop with
   a few specific software packages installed (listed
   <a href="#setup">below</a>). They are also required to abide by
@@ -115,13 +109,30 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
 </p>
 
 <!--
-  CONTACT EMAIL ADDRESS
+  ETHERPAD
+  At `_misc/etherpad.txt` you will find a template for the etherpad.
+  Display the Etherpad for the workshop.  You can set this up in
+  advance or on the first day; either way, make sure you push changes
+  to GitHub after you have its URL.  To create an Etherpad, go to
+      http://etherpad.mozilla.org/YYYY-MM-DD-site
+  where 'YYYY-MM-DD-site' is the identifier for your workshop (e.g.,
+  '2015-06-10-esu'.
+-->
+{% if page.etherpad %}
+<p>
+  <strong>Etherpad:</strong> <a href="{{page.etherpad}}">{{page.etherpad}}</a>.
+  <br/>
+  We will use this Etherpad for chatting, taking notes, and sharing URLs and bits of code.
+</p>
+{% endif %}
 
+<!--
+  CONTACT EMAIL ADDRESS
   Display the contact email address set in the header.  If an address
   isn't set in the header, the Software Carpentry admin address is
   used.
 -->
-<p id="contact">
+<p>
   <strong>Contact</strong>:
   Please mail
   {% if page.contact %}
@@ -136,69 +147,42 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
 
 <!--
   SCHEDULE
-
   Show the workshop's schedule.  Edit the items and times in the table
   to match your plans.  You may also want to change 'Day 1' and 'Day
   2' to be actual dates or days of the week.
 -->
-<h2 id="schedule">Schedule</h2>
+<h2>Schedule</h2>
 
 <div class="row">
   <div class="col-md-6">
-    <h3>Day 1</h3>
+    <h3>Day 1: October 19, 2015</h3>
     <table class="table table-striped">
-      <tr> <td>Arrival</td>  <td><a href='{{ site.swc_pre_survey }}{{ site.github.project_title }}'>Pre-workshop Survey</a></td> </tr>
       <tr> <td>09:00</td>  <td>Automating tasks with the Unix shell</td> </tr>
-      <tr> <td>10:30</td> <td>Coffee</td> </tr>
+      <tr> <td>10:30</td> <td>Short break</td> </tr>
       <tr> <td>12:00</td>  <td>Lunch break</td> </tr>
-      <tr> <td>13:00</td>  <td>Building programs with Python</td> </tr>
-      <tr> <td>14:30</td>  <td>Coffee</td> </tr>
+      <tr> <td>13:00</td>  <td>Building programs with Python, part 1</td> </tr>
+      <tr> <td>14:30</td>  <td>Short break</td> </tr>
       <tr> <td>16:00</td>  <td>Wrap-up</td> </tr>
     </table>
   </div>
   <div class="col-md-6">
-    <h3>Day 2</h3>
+    <h3>Day 2: October 20, 2015</h3>
     <table class="table table-striped">
-      <tr> <td>09:00</td>  <td>Version control with Git</td> </tr>
-      <tr> <td>10:30</td>  <td>Coffee</td> </tr>
-      <tr> <td>12:00</td>  <td>Lunch break</td> </tr>
-      <tr> <td>13:00</td>  <td>Managing data with SQL</td> </tr>
-      <tr> <td>14:30</td>  <td>Coffee</td> </tr>
+      <tr> <td>09:00</td>  <td>Building programs with Python, part 2</td> </tr>
+      <tr> <td>10:30</td>  <td>Short break</td> </tr>
+      <tr> <td>12:00</td>  <td>Lunch</td> </tr>
+      <tr> <td>13:00</td>  <td>Version control with Git</td> </tr>
+      <tr> <td>14:30</td>  <td>Short break</td> </tr>
       <tr> <td>16:00</td>  <td>Wrap-up</td> </tr>
-      <tr> <td>Dismissal</td>  <td><a href='{{ site.swc_post_survey }}{{ site.github.project_title }}'>Post-workshop Survey</a></td> </tr>
     </table>
   </div>
 </div>
-
-<!--
-  ETHERPAD
-
-  At `_misc/etherpad.txt` you will find a template for the etherpad.
-
-  Display the Etherpad for the workshop.  You can set this up in
-  advance or on the first day; either way, make sure you push changes
-  to GitHub after you have its URL.  To create an Etherpad, go to
-
-      http://pad.software-carpentry.org/YYYY-MM-DD-site
-
-  where 'YYYY-MM-DD-site' is the identifier for your workshop,
-  e.g., '2015-06-10-esu'.
--->
-{% if page.etherpad %}
-<p id="etherpad">
-  <strong>Etherpad:</strong> <a href="{{page.etherpad}}">{{page.etherpad}}</a>.
-  <br/>
-  We will use this Etherpad for chatting, taking notes, and sharing URLs and bits of code.
-</p>
-{% endif %}
 
 <hr/>
 
 <!--
   SYLLABUS
-
   Show what topics will be covered.
-
   1. If your workshop is R rather than Python, remove the comment
      around that section and put a comment around the Python section.
   2. Some workshops will delete SQL.
@@ -206,16 +190,18 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
      intend to teach.
   4. You may need to move the div's with class="col-md-6" around inside
      the div's with class="row" to balance the multi-column layout.
-
   This is one of the places where people frequently make mistakes, so
   please preview your site before committing, and make sure to run
   'tools/check' as well.
 -->
-<h2 id="syllabus">Syllabus</h2>
+<h2>Syllabus</h2>
+
+<p>Note that the content listed here are links to the standard Software Carpentry class, which is an <emph>ideal</emph> rather than something that actually happens because there simply isn't enough time over two days to cover it all.  What will happen is that your instructor will basically follow the high-level goals of each section but with shifts to the content and the emphasis.  The end result will be some divergence from what is highlighted here but you will now have two examples to work from: what you did in class and what is summarized in the sections shared here.</p>
 
 <div class="row">
   <div class="col-md-6">
-    <h3 id="syllabus-shell">The Unix Shell</h3>
+    <h3>The Unix Shell</h3>
+    <a href="http://swcarpentry.github.io/shell-novice/" target="_blank">Course Materials</a>
     <ul>
       <li>Files and directories</li>
       <li>History and tab completion</li>
@@ -227,7 +213,8 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
     </ul>
   </div>
   <div class="col-md-6">
-    <h3 id="syllabus-python">Programming in Python</h3>
+    <h3>Programming in Python</h3>
+    <a href="http://swcarpentry.github.io/python-novice-inflammation/" target="_blank">Course Materials</a>
     <ul>
       <li>Using libraries</li>
       <li>Working with arrays</li>
@@ -241,7 +228,7 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
   </div>
   <!--
   <div class="col-md-6">
-    <h3 id="syllabus-r">Programming in R</h3>
+    <h3>Programming in R</h3>
     <ul>
       <li>Working with vectors and data frames</li>
       <li>Reading and plotting data</li>
@@ -254,7 +241,7 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
   -->
   <!--
   <div class="col-md-6">
-    <h3 id="syllabus-matlab">Programming in MATLAB</h3>
+    <h3>Programming in MATLAB</h3>
     <ul>
       <li>Working with arrays</li>
       <li>Reading and plotting data</li>
@@ -269,7 +256,8 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
 
 <div class="row">
   <div class="col-md-6">
-    <h3 id="syllabus-git">Version Control with Git</h3>
+    <h3>Version Control with Git</h3>
+    <a href="http://swcarpentry.github.io/git-novice/" target="_blank">Course Materials</a>
     <ul>
       <li>Creating a repository</li>
       <li>Recording changes to files: <code>add</code>, <code>commit</code>, ...</li>
@@ -282,8 +270,9 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
       <li><a href="{{site.swc_githubio}}/git-novice/reference.html">Reference...</a></li>
     </ul>
   </div>
+  <!--
   <div class="col-md-6">
-    <h3 id="syllabus-sql">Managing Data with SQL</h3>
+    <h3>Managing Data with SQL</h3>
     <ul>
       <li>Reading and sorting data</li>
       <li>Filtering with <code>where</code></li>
@@ -296,17 +285,16 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
       <li><a href="{{site.swc_githubio}}/sql-novice-survey/reference.html">Reference...</a></li>
     </ul>
   </div>
+  -->
 </div>
 
 <hr/>
 
 <!--
   SETUP
-
   Delete irrelevant sections from the setup instructions.  Each
   section is inside a 'div' without any classes to make the beginning
   and end easier to find.
-
   This is the other place where people frequently make mistakes, so
   please preview your site before committing, and make sure to run
   'tools/check' as well.
@@ -336,59 +324,24 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
   <div class="row">
     <div class="col-md-4">
       <h4 id="shell-windows">Windows</h4>
-      <ol>
-        <li>Download the Git for Windows <a href="https://git-for-windows.github.io/">installer</a>.</li>
-        <li>Run the installer and follow the steps bellow:
-          <ol>
-            <!-- Git 2.6.1 Setup -->
-            <!-- Welcome to the Git Setup Wizard -->
-            <li>Click on "Next".</li>
-            <!-- Information -->
-            <li>Click on "Next".</li>
-            <!-- Select Destination Location -->
-            <li>Click on "Next".</li>
-            <!-- Select Components -->
-            <li>Click on "Next".</li>
-            <!-- Select Start Menu Folder -->
-            <li>Click on "Next".</li>
-            <!-- Adjusting your PATH environment -->
-            <li>
-              <strong>
-                Select "Use Git from the Windows Command Prompt" and click on "Next".
-              </strong>
-                If you forgot to do this programs that you need for the workshop will not work properly.
-                If this happens rerun the installer and select the appropriate option.
-            </li>
-            <!-- Configuring the line ending conversions -->
-            <li>
-              Click on "Next".
-              <strong>
-                Keep "Checkout Windows-style, commit Unix-style line endings" selected.
-              </strong>
-            </li>
-            <!-- Configuring the terminal emulator to use with Git Bash -->
-            <li>
-              <strong>
-                Select "Use Windows' default console window" and click on "Next".
-              </strong>
-            </li>
-            <!-- Configuring experimental performance tweaks -->
-            <li>Click on "Next".</li>
-            <!-- Installing -->
-            <!-- Completing the Git Setup Wizard -->
-            <li>Click on "Finish".</li>
-          </ol>
-        </li>
-      </ol>
-      <p>This will provide you with both Git and Bash in the Git Bash program.</p>
+      <p>
+        Download the Git for Windows
+	<a href="https://git-for-windows.github.io/">installer</a>. Run the
+        installer. <br/><strong>Important: on the 6th page of the installation wizard (the
+        page titled `Configuring the terminal emulator...`) select `Use Windows'
+        default console window`. If you forgot to do this programs that you need
+        for the workshop will not work properly. If this happens rerun the
+        installer and select the appropriate option.</strong> <br/>This will provide you
+        with both Git and Bash in the Git Bash program.
+      </p>
     </div>
     <div class="col-md-4">
       <h4 id="shell-macosx">Mac OS X</h4>
       <p>
-        The default shell in all versions of Mac OS X is Bash, so no
-        need to install anything.  You access Bash from the Terminal
+        The default shell in all versions of Mac OS X is bash, so no
+        need to install anything.  You access bash from the Terminal
         (found in
-        <code>/Applications/Utilities</code>). You may want to keep
+        <code>/Applications/Utilities</code>).  You may want to keep
         Terminal in your dock for this workshop.
       </p>
     </div>
@@ -469,7 +422,7 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
       <h4 id="editor-windows">Windows</h4>
       <p>
         nano is a basic editor and the default that instructors use in the workshop.
-        To install it,
+        To install it, 
         download the <a href="{{site.swc_installer}}">Software Carpentry Windows installer</a>
         and double click on the file to run it.
         <strong>This installer requires an active internet connection.</strong>
@@ -522,7 +475,7 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
     scientific computing, and great for general-purpose programming as
     well.  Installing all of its scientific packages individually can be
     a bit difficult, so we recommend
-    <a href="https://www.continuum.io/anaconda">Anaconda</a>,
+    <a href="https://store.continuum.io/cshop/anaconda/">Anaconda</a>,
     an all-in-one installer.
   </p>
 
@@ -547,7 +500,8 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
       <h4 id="python-windows">Windows</h4>
       <ol>
         <li>Open <a href="http://continuum.io/downloads">http://continuum.io/downloads</a> with your web browser.</li>
-        <li>Download the Python 3 installer for Windows.</li>
+        <li>Click on "I want Python 3.X" link.</li>
+        <li>Download this Python 3 installer.</li>
         <li>Install Python 3 using all of the defaults for installation <em>except</em> make sure to check <strong>Make Anaconda the default Python</strong>.</li>
       </ol>
     </div>
@@ -555,7 +509,8 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
       <h4 id="python-macosx">Mac OS X</h4>
       <ol>
         <li>Open <a href="http://continuum.io/downloads">http://continuum.io/downloads</a> with your web browser.</li>
-        <li>Download the Python 3 installer for OS X.</li>
+        <li>Click on "I want Python 3.X" link.</li>
+        <li>Download this Python 3 installer.</li>
         <li>Install Python 3 using all of the defaults for installation.</li>
       </ol>
     </div>
@@ -564,7 +519,8 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
       </p>
       <ol>
         <li>Open <a href="http://continuum.io/downloads">http://continuum.io/downloads</a> with your web browser.</li>
-        <li>Download the Python 3 installer for Linux.</li>
+        <li>Click on "I want Python 3.X" link.</li>
+        <li>Download this Python 3 installer, save it in your home folder.</li>
         <li>Install Python 3 using all of the defaults for installation.
         (Installation requires using the shell. If you aren't
         comfortable doing the installation yourself
@@ -595,113 +551,3 @@ eventbrite:       # optional (insert the alphanumeric key for Eventbrite registr
   which has instructions on how to test that everything was installed correctly.
   </p>
 </div> <!-- End of 'Python' section. -->
-
-<div id="r"> <!-- Start of 'R' section. -->
-  <h3>R</h3>
-
-  <p>
-    <a href="http://www.r-project.org">R</a> is a programming language
-    that is especially powerful for data exploration, visualization, and
-    statistical analysis. To interact with R, we use
-    <a href="http://www.rstudio.com/">RStudio</a>.
-  </p>
-
-  <div class="row">
-    <div class="col-md-4">
-      <h4 id="r-windows">Windows</h4>
-      <p>
-        Install R by downloading and running
-        <a href="http://cran.r-project.org/bin/windows/base/release.htm">this .exe file</a>
-        from <a href="http://cran.r-project.org/index.html">CRAN</a>.
-        Also, please install the
-        <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.
-      </p>
-    </div>
-    <div class="col-md-4">
-      <h4 id="r-macosx">Mac OS X</h4>
-      <p>
-        Install R by downloading and running
-        <a href="http://cran.r-project.org/bin/macosx/R-latest.pkg">this .pkg file</a>
-        from <a href="http://cran.r-project.org/index.html">CRAN</a>.
-        Also, please install the
-        <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.
-      </p>
-    </div>
-    <div class="col-md-4">
-      <h4 id="r-linux">Linux</h4>
-      <p>
-        You can download the binary files for your distribution
-        from <a href="http://cran.r-project.org/index.html">CRAN</a>. Or
-        you can use your package manager (e.g. for Debian/Ubuntu
-        run <code>sudo apt-get install r-base</code> and for Fedora run
-        <code>sudo yum install R</code>).  Also, please install the
-        <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.
-      </p>
-    </div>
-  </div>
-</div> <!-- End of 'R' section. -->
-
-<div id="sql"> <!-- Start of 'SQLite' section. -->
-  <h3>SQLite</h3>
-
-  <p>
-    SQL is a specialized programming language used with databases.  We
-    use a simple database manager called
-    <a href="http://www.sqlite.org/">SQLite</a> in our lessons.
-  </p>
-
-  <div class="row">
-    <div class="col-md-4">
-      <h4 id="sql-windows">Windows</h4>
-      <p>
-        The <a href="{{site.swc_github}}/windows-installer">Software Carpentry Windows Installer</a>
-        installs SQLite for Windows.
-        If you used the installer to configure nano, you don't need to run it again.
-      </p>
-    </div>
-    <div class="col-md-4">
-      <h4 id="sql-macosx">Mac OS X</h4>
-      <p>
-        SQLite comes pre-installed on Mac OS X.
-      </p>
-    </div>
-    <div class="col-md-4">
-      <h4 id="sql-linux">Linux</h4>
-      <p>
-        SQLite comes pre-installed on Linux.
-      </p>
-    </div>
-  </div>
-
-  <p><strong>If you installed Anaconda, it also has a copy of SQLite
-    <a href="https://github.com/ContinuumIO/anaconda-issues/issues/307">without support to <code>readline</code></a>.
-    Instructors will provide a workaround for it if needed.</strong></p>
-</div> <!-- End of 'SQLite' section. -->
-
-<!--
-  Uncomment this section if you are using our virtual machine.
-
-<div id="vm">
-  <h3>Virtual Machine</h3>
-
-  <p>
-    Some instructors prefer to have learners use a virtual machine (VM)
-    rather than install software on their own computers.  If your
-    instructors have chosen to do this, please:
-  </p>
-  <ol>
-    <li>
-      Install <a href="https://www.virtualbox.org/">VirtualBox</a>.
-    </li>
-    <li>
-      Download our <a href="{{site.swc_vm}}">VM image</a>.
-      <strong>Warning:</strong> this file is 1.7 GByte, so please
-      download it <em>before</em> coming to your workshop.
-    </li>
-    <li>
-      Load the VM into VirtualBox by selecting "Import Appliance" and
-      loading the <code>.ova</code> file.
-    </li>
-  </ol>
-</div>
--->
